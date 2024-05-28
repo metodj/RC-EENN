@@ -5,7 +5,7 @@ from typing import Tuple
 
 
 def read_img_cls_data(path: str, model: str, dataset: str) -> Tuple[np.array, np.array]:
-    with open(f"{path}/{model}/{dataset}.p", "rb") as f:
+    with open(f"{path}/{model}/{dataset}_numpy.p", "rb") as f:
         data = pickle.load(f)
 
     if len(data) == 2:
@@ -13,9 +13,8 @@ def read_img_cls_data(path: str, model: str, dataset: str) -> Tuple[np.array, np
     else:
         logits, targets, _ = data
 
-    logits = np.array(logits)
-    targets = np.array(targets)
     logits = np.transpose(logits, (1, 0, 2))
+    targets = targets.astype(int)
 
     return logits, targets
 
@@ -205,3 +204,15 @@ def get_acc_per_exit(preds, targets: np.ndarray):
 def softmax(x, axis=None):
     exp_x = np.exp(x - np.max(x, axis=axis, keepdims=True))
     return exp_x / np.sum(exp_x, axis=axis, keepdims=True)
+
+
+def max_exit(model: str, dataset: str, path: str,) -> int:
+    with open(f"{path}/{model}/{dataset}.p", "rb") as f:
+        data = pickle.load(f)
+
+    if len(data) == 2:
+        logits, _ = data
+    else:
+        logits, _, _ = data
+
+    return logits.shape[0]
