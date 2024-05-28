@@ -1,11 +1,11 @@
 import numpy as np
 
-from bounds import ucb_wsr, ucb_hb, hb_p_value
+from rc.bounds import ucb_wsr, ucb_hb, hb_p_value
 
 from typing import List, Tuple, Dict
 
 
-def rcp_main(
+def rc_main(
     losses: np.array,
     exits: np.array,
     eps_grid: np.array,
