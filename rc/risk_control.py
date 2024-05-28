@@ -72,7 +72,7 @@ def rc_main(
                     lam_id = naive_lam(cal_losses, eps)
                 elif rcp == "ucb-wsr":
                     lam_id = ucb_lam(
-                        cal_losses, eps, delta, ucb_type="wsr", binary_loss=False, B=loss_bound
+                        cal_losses, eps, delta, ucb_type="wsr", binary_loss=False, loss_bound=loss_bound
                     )
                 elif rcp == "ltt":
                     lam_id = ltt_lam(
