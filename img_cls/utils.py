@@ -5,7 +5,7 @@ from typing import Tuple
 
 
 def read_img_cls_data(path: str, model: str, dataset: str) -> Tuple[np.array, np.array]:
-    with open(f"{path}/{model}/{dataset}_numpy.p", "rb") as f:
+    with open(f"{path}/{model}/{dataset}.p", "rb") as f:
         data = pickle.load(f)
 
     if len(data) == 2:
