@@ -1,0 +1,1 @@
+Store [precomputed logits](https://drive.google.com/drive/folders/11sqPu6TZDSCoIdzBWQwzwzhPEedkYfWW?usp=share_link) from EENN models in this directory 
