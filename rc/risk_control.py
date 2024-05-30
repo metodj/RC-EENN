@@ -23,7 +23,7 @@ def rc_main(
     Args:
         losses: (K, n_cal) where K is the size of the lambda grid. 
                  Rows in losses array correspond to the descending ordering of lambdas.
-        exits: (K,)
+        exits: (K,) average exit per threshold
         eps_grid: grid of risk levels
         rcp_types: list of risk control procedures
         binary_loss: whether the loss is binary
@@ -32,9 +32,6 @@ def rc_main(
         n_cal: number of calibration datapoints
         delta: confidence level
         seed: random seed
-
-    Returns:
-        TODO
 
     """
     np.random.seed(seed)
@@ -45,10 +42,6 @@ def rc_main(
     assert losses.shape[0] == exits.shape[0]
     _, N = losses.shape
 
-    # TODO: check for marginal monotonicity
-    # TODO: also check that the orders of rows in losses corresponds to the descending ordering of lambdas
-    # assert np.allclose(losses.mean(axis=1), np.sort(losses.mean(axis=1))), "Losses are not in descending order: {} vs {}".format(losses.mean(axis=1), np.sort(losses.mean(axis=1)))
-
     test_risk, eff_gains = {r: [] for r in rcp_types}, {r: [] for r in rcp_types}
 
     for _ in range(n_trials):
@@ -57,12 +50,6 @@ def rc_main(
         test_ids = np.setdiff1d(np.arange(N), cal_ids)
 
         cal_losses, test_losses = losses[:, cal_ids], losses[:, test_ids]
-
-        # TODO: get rid of this if statement
-        if len(exits.shape) == 1:
-            test_exits = exits
-        else:
-            test_exits = exits[:, test_ids]
 
         # STAGE 1: find \hat{\lambda} on the calibration dataset
         rcp_lams = {r: [] for r in rcp_types}
@@ -88,13 +75,7 @@ def rc_main(
             for e, eps in enumerate(eps_grid):
                 lam_id = rcp_lams[rcp][e]
                 test_risk_e.append(test_losses[lam_id].mean())
-
-                # TODO: get rid of this if statement
-                if len(exits.shape) == 1:
-                    eff_gains_e.append(test_exits[lam_id])
-                else:
-                    eff_gains_e.append(test_exits[lam_id].mean())
-
+                eff_gains_e.append(exits[lam_id])
             test_risk[rcp].append(test_risk_e)
             eff_gains[rcp].append(eff_gains_e)
 
