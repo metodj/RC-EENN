@@ -9,3 +9,5 @@
 - [DViT](https://github.com/blackfeather-wang/Dynamic-Vision-Transformer)
 - [L2W-DEN](https://github.com/LeapLabTHU/L2W-DEN)
 - [DynPerc](https://github.com/LeapLabTHU/Dynamic_Perceiver)
+
+In case of questions, open an issue and tag @metodj 
