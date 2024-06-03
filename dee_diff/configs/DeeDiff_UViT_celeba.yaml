@@ -1,0 +1,27 @@
+config:
+  yaml:
+model_params:
+  name: "DeeDiff_UViT"
+  img_size: 64
+  patch_size: 4
+  in_chans: 3
+  embed_dim: 512
+  depth: 12
+  num_heads: 8
+  mlp_ratio: 4
+
+train_params:
+  num_train_timesteps: 500
+  use_amp: true
+  amp_dtype: "bf16"
+  batch_size: 128
+  num_epochs: 600
+  learning_rate: 0.00007
+  num_warmup_steps: 3500
+
+dataset:
+  name: "CelebA"
+  mean: [0.5, 0.5, 0.5]
+  std: [0.5, 0.5, 0.5]
+  original_resolution: null
+  target_resolution: [64, 64]
