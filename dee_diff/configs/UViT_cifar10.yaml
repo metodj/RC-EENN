@@ -1,0 +1,28 @@
+config:
+  yaml:
+model_params:
+  name: "UViT"
+  img_size: 32
+  patch_size: 2
+  in_chans: 3
+  embed_dim: 512
+  depth: 17
+  num_heads: 8
+  mlp_ratio: 4
+
+train_params:
+  num_train_timesteps: 1000
+  use_amp: true
+  amp_dtype: "bfloat16"
+  batch_size: 128
+  num_epochs: 300
+  learning_rate: 0.0001
+  num_warmup_steps: 1500
+
+dataset:
+  name: "CIFAR10"
+  mean: [0.5, 0.5, 0.5]
+  std: [0.5, 0.5, 0.5]
+  original_resolution: [32, 32]
+  target_resolution: [32, 32]
+
