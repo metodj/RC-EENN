@@ -1,5 +1,5 @@
 ## Semantic segmentation experiments
-Image-level early-exiting with ADP-C model on Cityscapes and GTA5 datasets.
+Image-level early-exiting with ADP-C model and risk control framework on Cityscapes and GTA5 datasets.
 
 ### Setup
 - Download pretrained ADP-C models from the [original repo](https://github.com/liuzhuang13/anytime) and store them in the `./pretrained_models/` folder, or add symbolic links here. This includes both the base models as well as the early-exit extensions (see their instructions). Do not change any model names. 
