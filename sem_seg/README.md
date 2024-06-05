@@ -22,6 +22,4 @@ We provide pre-tuned models [here](https://drive.google.com/drive/folders/1KKxYb
 
 It will generate a separate folder in the root directory called `output_train_w18/48` where the finetuned models, intermediate checkpoints and other training details are saved. The finetuned models can then be used for the early-exiting experiments on the GTA5 dataset.
 
-- The finetuning script is `finetune_gta5.py`.  It uses the same config files as the main experiments, but with the `finetune` flag set to True.  The script will automatically load the pretrained model and finetune it on the GTA5 dataset.  The finetuned model is saved in the output directory specified in the config file.  The finetuned model can then be used for the early-exiting experiments on the GTA5 dataset.
-
 If you have any questions, please open an issue and tag @alextimans.
