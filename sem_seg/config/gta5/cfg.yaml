@@ -1,0 +1,35 @@
+PROJECT:
+  CONFIG_DIR: "sem_seg/config/gta5"
+  OUTPUT_DIR: "/projects/0/prjs0874/output_rcp"
+
+DATASET:
+  DIR: "/projects/0/prjs0874/datasets"
+  NAME: "gta5"
+  CAL_LABELS_AVAIL: true
+
+RISK_CONTROL:
+  N_TRIALS: 100
+  N_CAL: 800
+  PROCEDURE:
+    - naive
+    - crc
+    - ucb
+    - ltt
+  PERM: random  # perm, random, const
+  EPSILON_START: 0.0
+  EPSILON_END: 0.51
+  EPSILON_STEP: 0.01
+  DELTA: 0.1
+  DELTA_CONF: 0.1
+  LAMBDA_START: 1.0
+  LAMBDA_END: 0.0
+  LAMBDA_STEP: 0.01
+  CONF_MEASURE: top1
+  CONF_MEASURE_AGGR: mean
+  RISK: miscoverage
+  RISK_CONF: brier_pred
+
+FILE:
+  SAVE_LABELS: false
+  SAVE_PREDS: false
+  SAVE_CONF: false

@@ -1,5 +1,5 @@
 # RC-EENN
-Code for paper [Fast yet Safe: Early-Exiting with Risk Control](https://arxiv.org/abs/2405.20915)
+This is the public code repository for our paper: [Fast yet Safe: Early-Exiting with Risk Control](https://arxiv.org/abs/2405.20915)
 
 ## Main Dependencies
 TODO
@@ -11,11 +11,25 @@ TODO
 4. Install dependencies, using `pip install -r requirements.txt`
 
 ## Code
-Code for each experiment can be found in:
-- image classification (ImageNet) --> `img_cls`
-- semanting segmentation (CityScapes) --> `sem_seg`
-- language modeling (SQuAD, CNN/DM) --> `calm`
-- image generation with diffusion (CelebA, CIFAR) --> `dee_diff`
+Code for each experiment can be found in its respective subfolder:
+- Image classification (ImageNet) --> `img_cls`
+- Semantic segmentation (Cityscapes, GTA5) --> `sem_seg`
+- Language modeling (SQuAD, CNN/DM) --> `calm`
+- Image generation with early-exit diffusion (CelebA, CIFAR) --> `dee_diff`
  
 ## Acknowledgements
 The [Robert Bosch GmbH](https://www.bosch.com) is acknowledged for financial support.
+
+## License
+TODO
+
+## Citation
+If you find this repository helpful, please consider citing:
+```
+@article{jazbec2024fast,
+    title = {Fast yet Safe: Early-Exiting with Risk Control}, 
+    author = {Metod Jazbec and Alexander Timans and Tin Hadži Veljković and Kaspar Sakmann and Dan Zhang and Christian A. Naesseth and Eric Nalisnick},
+    journal = {Arxiv Preprint},
+    year = {2024},
+}
+```
